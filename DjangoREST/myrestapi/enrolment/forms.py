@@ -8,16 +8,16 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = (
-            'username',
-            'first_name',
-            'last_name',
-            'email',
-            'password1',
-            'password2'
+             'username',
+             'first_name',
+             'last_name',
+             'email',
+             'password1',
+             'password2'
         )
 
     def save(self, commit=True):
-        user = super(SignupForm, self).save(commit=False)
+        user = super(SignUpForm, self).save(commit=False)
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
         user.email = self.cleaned_data['email']
@@ -26,4 +26,13 @@ class SignUpForm(UserCreationForm):
             user.save()
 
         return user
+
+#test starts here
+from .models import Application
+
+class ApplicationForm(forms.ModelForm):
+    class Meta:
+        model = Application
+        exclude = ('user', 'Application_Status', 'message',)
+
 
