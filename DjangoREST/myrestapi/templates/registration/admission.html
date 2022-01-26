@@ -1,0 +1,14 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Login Page {% endblock %}
+{% block login %} active {% endblock %}
+
+{% if user.is_authenticated %}
+ <h1>Hi {{ user.username }}, Apply for Admission</h2>
+  <p><a href="{% url 'apply' %}">Log Out</a></p>
+  
+{% else %}
+   <p>You are not logged in</p>
+   <a href="{% url 'login' %}">Log In</a>
+{% endif %}

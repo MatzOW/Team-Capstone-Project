@@ -1,0 +1,25 @@
+<!-- templates/registration/signup.html -->
+{% extends 'base.html' %}
+
+{% block title %} Login Page {% endblock %}
+{% block login %} active {% endblock %}
+
+{% block css %}
+{% endblock %}
+{% block body %}
+           
+ <div class="container"></div>
+
+      <h2>Sign up</h2>
+     <p></p>
+     <p></p>
+
+    <h2> Register and complete your profile </h2> 
+    <form method="post">
+       {% csrf_token %}
+       {{ form.as_p }}
+       <button type="submit">Sign Up</button>
+    </form>
+  </div>   
+ </div>
+{% endblock %}
